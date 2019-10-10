@@ -146,7 +146,7 @@ public class BasePDFRecyclerAdapter extends RecyclerView.Adapter<BasePDFRecycler
 
         PdfRenderer.Page page = getPDFPage(renderer, position);
 
-        Bitmap bitmap = bitmapContainer.get(position);
+        Bitmap bitmap = Bitmap.createBitmap(page.getWidth(), page.getHeight(), Bitmap.Config.ARGB_8888);
         page.render(bitmap, null, null, PdfRenderer.Page.RENDER_MODE_FOR_DISPLAY);
         page.close();
 
